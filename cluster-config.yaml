@@ -1,0 +1,13 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: insignia-eks-cluster
+  region: us-west-2
+managedNodeGroups:
+  - name: ng-1
+    instanceType: t3.medium
+    minSize: 1
+    maxSize: 3
+    desiredCapacity: 2
+secretsEncryption:
+  keyARN: <KMS-key-ARN>

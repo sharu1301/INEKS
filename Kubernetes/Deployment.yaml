@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insignia-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: insignia-app
+  template:
+    metadata:
+      labels:
+        app: insignia-app
+    spec:
+      containers:
+      - name: insignia-app
+        image: your-dockerhub-username/insignia-app:latest
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
+      volumes:
+      - name: secrets-store-inline
+        csi:
+          driver: secrets-store.csi.k8s.io
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: "aws-secrets"

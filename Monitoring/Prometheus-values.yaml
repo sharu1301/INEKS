@@ -1,0 +1,6 @@
+# Example prometheus-values.yaml
+grafana:
+  adminPassword: your-secure-password
+prometheus:
+  prometheusSpec:
+    retention: 15d
