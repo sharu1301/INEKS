@@ -10,4 +10,4 @@ managedNodeGroups:
     maxSize: 3
     desiredCapacity: 2
 secretsEncryption:
-  keyARN: <KMS-key-ARN>
+  keyARN: arn:aws:kms:us-east-1:975049990844:key/1d981a5e-4f79-448f-9bec-1a21d48bb8eb
